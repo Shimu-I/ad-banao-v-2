@@ -1,0 +1,191 @@
+﻿Summary,Description,Issue Type,Status,Labels,Priority
+[F1] Repository and documents,"Milestone M0: Foundation (F)
+
+Done when: README, contributing guide and overview exist
+
+Notes from the roadmap: ✅",Task,Done,M0,Medium
+[F2] Backend skeleton and database models,"Milestone M0: Foundation (F)
+
+Done when: App starts, five models defined
+
+Notes from the roadmap: ✅ (tests pass in CI)",Task,Done,M0,Medium
+[F3] Product and brand profiles,"Milestone M0: Foundation (F)
+
+Done when: Create, edit, archive, upload photo, readiness report
+
+Notes from the roadmap: ✅ (API tests pass in CI)",Task,Done,M0,Medium
+[F4] Grounded description and ad text,"Milestone M0: Foundation (F)
+
+Done when: One route returns description, headline, tagline, button, with fact check and fallback
+
+Notes from the roadmap: ✅ (route tests pass in CI, no real AI call)",Task,Done,M0,Medium
+[F5] Developer environment and quality gates,"Milestone M0: Foundation (F)
+
+Done when: `make setup`, `make test`, `make lint` work on Linux. Ruff, mypy, pre-commit and GitHub Actions run on every pull request. Default branch is `main` and protected. Files in the planned structure
+
+Notes from the roadmap: 🟡 Files and config are in place: Makefile, pyproject, pre-commit, CI workflow, templates, decision records, and the code is moved into the planned folders (lint and 245 tests pass here). GitHub Actions ran it on 2026-11-21: lint passes, 289 tests pass, mypy reported one finding (fixed). **Not yet run by you:** `make setup` and the pre-commit hooks. Branch protection not yet set",Task,In Progress,M0,Medium
+[F6] Run everything for real,"Milestone M0: Foundation (F)
+
+Done when: All tests pass on your machine and in CI. Failures fixed. Your checklist ticked
+
+Notes from the roadmap: 🟡 CI passes, and the owner's machine passed on 2026-11-22 (SQLite, fake AI). PostgreSQL 16 in Docker also passed (01:27). Still to do: a real Gemini or Groq key and a hosted database",Task,In Progress,M0,Medium
+[F7] Database migrations,"Milestone M0: Foundation (F)
+
+Done when: Alembic creates and upgrades the schema. Local Postgres via Docker Compose. `key_features` column delivered as a migration
+
+Notes from the roadmap: ✅ (PR #9; `make migrate`; a test checks the migration matches the models)",Task,Done,M0,Medium
+[F8] API foundations,"Milestone M0: Foundation (F)
+
+Done when: `/api/v1` prefix, one error format with request IDs, structured logging, Gemini model name and keys as settings, health checks for database and providers
+
+Notes from the roadmap: ⬜",Task,To Do,M0,Medium
+[F9] Authentication and ownership,"Milestone M0: Foundation (F)
+
+Done when: Sign up and sign in. Every brand and product belongs to a user. A test proves one user cannot see another's data
+
+Notes from the roadmap: ✅ Accounts (PR #9) and ownership: every brand belongs to a user, products and ads through the brand, every route is checked, and tests with three users prove nobody can see or change another's data. Password reset by email is not done and moves to a later goal",Task,Done,M0,Medium
+[A1] Scene (layers) schema,"Milestone M1: Ad engine (A)
+
+Done when: Scene JSON validated. Bad scenes rejected with clear messages. Content hash function exists
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+[A2] Fonts and text fitting,"Milestone M1: Ad engine (A)
+
+Done when: Bangla and English fonts bundled. Text fits its box (shrink, wrap, or warn). Bangla letters shape correctly (Raqm)
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+"[A3] Renderer: one template, one size","Milestone M1: Ad engine (A)
+
+Done when: A square ad renders from a scene. Original photo untouched (hash test)
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+[A4] Templates and sizes,"Milestone M1: Ad engine (A)
+
+Done when: Three templates, three sizes (square post, story, banner). Auto layout places photo, text, price badge and logo
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+"[A5] Ad entity, versions and storage","Milestone M1: Ad engine (A)
+
+Done when: Ads and versions saved. Storage interface with local and S3 implementations
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+[A6] Ad editing API,"Milestone M1: Ad engine (A)
+
+Done when: Patch layers, undo, redo. Every edit makes a version and clears approval
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+"[A7] Resize, switch template, replace photo","Milestone M1: Ad engine (A)
+
+Done when: Each re-runs layout and keeps the user's text. Replaced photo is hashed and compared with the product
+
+Notes from the roadmap: ⬜",Task,To Do,M1,Medium
+[V1] Verify prices and details,"Milestone M2: Verification (V)
+
+Done when: Every price, discount and unit in the ad and text matches the product. Equivalent formats are not flagged
+
+Notes from the roadmap: ⬜",Task,To Do,M2,Medium
+[V2] Verify text with OCR,"Milestone M2: Verification (V)
+
+Done when: Rendered image read by Tesseract and compared with known layer text. Empty read gives ""Cannot verify""
+
+Notes from the roadmap: ⬜",Task,To Do,M2,Medium
+[V3] Verify unsupported claims,"Milestone M2: Verification (V)
+
+Done when: Rules first, optional AI second. Negation and outside-knowledge cases give ""Cannot verify""
+
+Notes from the roadmap: ⬜",Task,To Do,M2,Medium
+[V4] Verify brand and photo integrity,"Milestone M2: Verification (V)
+
+Done when: Colors, logo placement, contrast, and photo hash checked
+
+Notes from the roadmap: ⬜",Task,To Do,M2,Medium
+[V5] Reports and one-click fixes,"Milestone M2: Verification (V)
+
+Done when: One report per version. Worst result wins. Fixes available for the common issues
+
+Notes from the roadmap: ⬜",Task,To Do,M2,Medium
+[V6] Approval and export,"Milestone M2: Verification (V)
+
+Done when: Approval stored against the content hash. Export blocked unless approved and unmodified. Image and report downloadable
+
+Notes from the roadmap: ⬜",Task,To Do,M2,Medium
+[U1] Frontend scaffold,"Milestone M3: Interface (U)
+
+Done when: Vite, React, TypeScript, Tailwind, shadcn/ui, routing, light and dark theme, English and Bangla switch, generated API client, CI job
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U2] **Engaging home page**,"Milestone M3: Interface (U)
+
+Done when: Hero with live demo, before and after editing slider, how-it-works, features, trust section, call to action. Fast and accessible (details in section 14)
+
+Notes from the roadmap: 🟡 Page added as static HTML in `frontend/index.html` (owner's design, images moved to files). Still to do: speed and accessibility audit, move to React",Task,In Progress,M3,Medium
+[U3] Sign-in screens and app shell,"Milestone M3: Interface (U)
+
+Done when: Sign up, sign in, dashboard with brands and products
+
+Notes from the roadmap: 🟡 Sign-in and sign-up screens work against the real API, plus a profile page. Dashboard not started",Task,In Progress,M3,Medium
+[U4] Screen 1: Details,"Milestone M3: Interface (U)
+
+Done when: Guided form with examples, draft saving, photo upload, missing-data guidance
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U5] Screen 2: Generate,"Milestone M3: Interface (U)
+
+Done when: Progress states, review and edit generated text, basic-text label, retry
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U6] Screen 3: Editor,"Milestone M3: Interface (U)
+
+Done when: Konva canvas, layer panel, toolbar, undo and redo, size and template switch, photo replace
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U7] Check panel,"Milestone M3: Interface (U)
+
+Done when: Green, yellow, red cards with reasons, one-click fixes, override with reason
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U8] Screen 4: Approve and export,"Milestone M3: Interface (U)
+
+Done when: Approval, export, report download
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+"[U9] Polish: accessibility, mobile, Bangla","Milestone M3: Interface (U)
+
+Done when: Keyboard use, AA contrast, phone layouts, Bangla review
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U10] End-to-end tests,"Milestone M3: Interface (U)
+
+Done when: Full user journey runs in Playwright in CI
+
+Notes from the roadmap: ⬜",Task,To Do,M3,Medium
+[U11] Admin console,"Milestone M3: Interface (U)
+
+Done when: Roles, suspension, activity log, admin page (light/dark, desktop/phone), CSV, tests in CI
+
+Notes from the roadmap: 🟡 in review (docs/22-admin.md)",Task,In Progress,M3,Medium
+[S1] Evaluation,"Milestone M4: Ship (S)
+
+Done when: 30 to 50 test ads with injected errors. Results table with catches, misses, false alarms, ""Cannot verify"" rate, review-time comparison
+
+Notes from the roadmap: ⬜",Task,To Do,M4,Medium
+[S2] Production containers and config,"Milestone M4: Ship (S)
+
+Done when: Docker images build. Settings per environment. Health checks
+
+Notes from the roadmap: ⬜",Task,To Do,M4,Medium
+[S3] Staging deployment and monitoring,"Milestone M4: Ship (S)
+
+Done when: Frontend, backend, database and storage on free tiers. Sentry and logs working
+
+Notes from the roadmap: ⬜",Task,To Do,M4,Medium
+[S4] Security and resilience review,"Milestone M4: Ship (S)
+
+Done when: Checklist in [security and legal](11-security-and-legal.md) complete. Rate limits, backups, dependency audit
+
+Notes from the roadmap: ⬜",Task,To Do,M4,Medium
+[S5] Documentation and release,"Milestone M4: Ship (S)
+
+Done when: User guide, runbook, demo script, name and domain check, `v1.0.0` tag
+
+Notes from the roadmap: ⬜",Task,To Do,M4,Medium
