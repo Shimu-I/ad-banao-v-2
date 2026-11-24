@@ -1,0 +1,28 @@
+# Local PostgreSQL for development. The app also runs on SQLite without it.
+# Use in .env:  DATABASE_URL=postgresql://adbanao:adbanao@localhost:5432/adbanao
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: adbanao
+      POSTGRES_PASSWORD: adbanao
+      POSTGRES_DB: adbanao
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adbanao"]
+      interval: 5s
+      retries: 10
+  # Web viewer for the database, for demos. Open http://localhost:8080 (or the port in ADMINER_PORT
+  # if 8080 is taken: ADMINER_PORT=8081 make db-viewer)
+  # System: PostgreSQL, Server: db, Username: adbanao, Password: adbanao, Database: adbanao
+  adminer:
+    image: adminer:4
+    ports:
+      - "${ADMINER_PORT:-8080}:8080"
+    depends_on:
+      - db
+volumes:
+  dbdata:

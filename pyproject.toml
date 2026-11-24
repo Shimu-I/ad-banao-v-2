@@ -1,0 +1,19 @@
+# Tooling configuration. Runtime dependencies live in backend/requirements*.txt.
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["backend"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = [
+    "E501",  # long lines: handled by a formatter in a later goal
+    "UP042", # str-and-Enum classes are kept so stored values and str() stay unchanged
+    "B008",  # FastAPI's Depends(...) and File(...) in defaults is the documented pattern
+]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+files = ["backend/app"]
